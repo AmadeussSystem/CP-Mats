@@ -1,0 +1,17 @@
+{
+  "accentColor": "#6b5aad",
+  "cssTheme": "Vanilla AMOLED",
+  "interfaceFontFamily": "JetBrainsMono Nerd Font Mono,MonoLisa",
+  "textFontFamily": "JetBrainsMono Nerd Font Mono,MonoLisa",
+  "monospaceFontFamily": "JetBrainsMono Nerd Font Mono,MonoLisa",
+  "enabledCssSnippets": [
+    "Daily Note Themes",
+    "Notebook Backgrounds",
+    "Colored Sidebar Items",
+    "CyanVoxel's General Tweaks",
+    "Japanese Font Support"
+  ],
+  "translucency": false,
+  "theme": "obsidian",
+  "baseFontSize": 20
+}

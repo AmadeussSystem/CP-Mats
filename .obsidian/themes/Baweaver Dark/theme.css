@@ -1,0 +1,316 @@
+/*------------------------------------------------------------------------------
+  Baweaver Dark — An Obsidian theme based on the baweaver.com portfolio aesthetic.
+
+  Inspired by CyanVoxel's Vauxhall theme structure (HSL + color-mix approach)
+  with the baweaver.com color palette: nightfall blues, mystic purple, aged gold,
+  and warm paper tones.
+
+  Includes subtle daily hue variations that shift the background tone while
+  keeping the overall dark aesthetic cohesive.
+------------------------------------------------------------------------------*/
+
+/* ─── Named Palette (shared with Colored Sidebar) ─── */
+:root {
+  --mint: #52eea3;
+  --cyan: #51e1e9;
+  --cool-cyan: #43cfea;
+  --light-blue: #54b6f8;
+  --blue: #437cf3;
+  --blue-violet: #6f51f4;
+  --violet: #9446f8;
+  --purple: #c952ed;
+  --magenta: #e54f9b;
+  --hot-red: #e3365e;
+  --cool-gray: #515768;
+
+  /* Portfolio palette */
+  --nightfall: #0c1432;
+  --mystic-purple: #6b5aad;
+  --dusk-blue: #56639a;
+  --fog: #8ca0b8;
+  --silver: #b8bcc6;
+  --aged-bronze: #7c6a4a;
+  --aged-gold: #c9a84c;
+  --sage: #6f7f6e;
+  --warm-paper: #e4ddd3;
+  --sepia: #6b523f;
+  --graphite: #4b463f;
+}
+
+/* ─── Base Dark Theme ─── */
+.theme-dark {
+  --hue-bg: 230;
+  --hue-fg: 258;
+  --sat-bg: 55%;
+  --sat-fg: 40%;
+  --lum: 25%;
+
+  --black: #000;
+  --white: #fff;
+
+  --baweaver-bg: hsl(var(--hue-bg), var(--sat-bg), var(--lum));
+  --baweaver-fg: hsl(var(--hue-fg), var(--sat-fg), 78%);
+
+  /* ─── Color Base Spectrum (Vauxhall-style) ─── */
+  --color-base-00: color-mix(in srgb, var(--baweaver-bg) 25%, var(--black));
+  --color-base-05: color-mix(in srgb, var(--baweaver-bg) 40%, var(--black));
+  --color-base-10: color-mix(in srgb, var(--baweaver-bg) 50%, var(--black));
+  --color-base-20: color-mix(in srgb, var(--baweaver-bg) 70%, var(--black));
+  --color-base-25: color-mix(in srgb, var(--baweaver-bg) 80%, var(--black));
+  --color-base-30: color-mix(in srgb, var(--baweaver-bg) 90%, var(--baweaver-fg));
+  --color-base-35: color-mix(in srgb, var(--baweaver-bg) 95%, var(--baweaver-fg));
+  --color-base-40: color-mix(in srgb, var(--baweaver-bg) 80%, var(--baweaver-fg));
+  --color-base-50: color-mix(in srgb, var(--baweaver-bg) 60%, var(--baweaver-fg));
+  --color-base-60: color-mix(in srgb, var(--baweaver-bg) 50%, var(--baweaver-fg));
+  --color-base-70: color-mix(in srgb, var(--baweaver-bg) 30%, var(--baweaver-fg));
+  --color-base-100: color-mix(in srgb, var(--baweaver-bg) 0%, var(--baweaver-fg));
+
+  /* ─── Core Backgrounds ─── */
+  --background-primary: var(--color-base-00);
+  --background-primary-alt: var(--color-base-05);
+  --background-secondary: var(--color-base-05);
+  --background-secondary-alt: var(--color-base-00);
+  --background-modifier-border: var(--color-base-25);
+  --background-modifier-form-field: var(--color-base-20);
+  --background-modifier-hover: var(--color-base-35);
+  --background-modifier-box-shadow: rgba(0, 0, 0, 0.4);
+  --background-modifier-success: #3b5e3a;
+  --background-modifier-error: #5e2a2a;
+  --background-modifier-error-rgb: 94, 42, 42;
+  --background-modifier-cover: rgba(10, 15, 40, 0.8);
+
+  /* ─── Text Colors ─── */
+  --text-normal: color-mix(in srgb, var(--baweaver-fg) 30%, var(--white));
+  --text-muted: var(--color-base-60);
+  --text-faint: var(--color-base-50);
+  --text-on-accent: var(--warm-paper);
+  --text-success: #7fbd7c;
+  --text-error: #e87070;
+  --text-selection: rgba(107, 90, 173, 0.35);
+  --text-highlight-bg: color-mix(in srgb, var(--aged-gold) 20%, transparent);
+  --text-highlight-bg-active: color-mix(in srgb, var(--aged-gold) 35%, transparent);
+  --text-accent-hover: var(--fog);
+
+  /* ─── Interactive Accent — Mystic Purple ─── */
+  --interactive-normal: var(--color-base-20);
+  --interactive-hover: var(--color-base-25);
+  --interactive-accent: var(--mystic-purple);
+  --interactive-accent-rgb: 107, 90, 173;
+  --interactive-accent-hover: #7d6ec4;
+  --interactive-success: #4a7a48;
+
+  /* ─── Headings — Portfolio-inspired gradient ─── */
+  --h1-color: var(--aged-gold);
+  --h2-color: var(--fog);
+  --h3-color: var(--mystic-purple);
+  --h4-color: var(--sage);
+  --h5-color: var(--aged-bronze);
+  --h6-color: var(--dusk-blue);
+
+  /* ─── Links ─── */
+  --link-color: #8b7dc8;
+  --link-color-hover: #a99ee0;
+  --link-unresolved-color: var(--dusk-blue);
+  --link-external-color: var(--fog);
+  --link-external-color-hover: #a0c0d8;
+
+  /* ─── Tags ─── */
+  --tag-color: var(--aged-gold);
+  --tag-background: color-mix(in srgb, var(--aged-gold) 12%, transparent);
+  --tag-background-hover: color-mix(in srgb, var(--aged-gold) 22%, transparent);
+
+  /* ─── Code ─── */
+  --code-normal: #b8a8d8;
+  --code-background: var(--color-base-10);
+  --code-size: 0.9em;
+
+  /* ─── Semantic Colors (for callouts, graphs, etc) ─── */
+  --color-red: var(--hot-red);
+  --color-orange: #fa9f50;
+  --color-yellow: #ffd85e;
+  --color-green: var(--mint);
+  --color-cyan: var(--cool-cyan);
+  --color-blue: var(--blue);
+  --color-purple: var(--violet);
+  --color-pink: var(--magenta);
+
+  /* ─── UI Chrome ─── */
+  --titlebar-background: var(--color-base-00);
+  --titlebar-background-focused: var(--color-base-10);
+  --tab-text-color: var(--color-base-60);
+  --tab-text-color-focused: var(--warm-paper);
+  --tab-text-color-focused-active: var(--aged-gold);
+
+  /* ─── Scrollbar ─── */
+  --scrollbar-active-thumb-bg: color-mix(in srgb, var(--mystic-purple) 50%, transparent);
+  --scrollbar-bg: rgba(14, 21, 53, 0.1);
+  --scrollbar-thumb-bg: color-mix(in srgb, var(--mystic-purple) 25%, transparent);
+
+  /* ─── UI Elements ─── */
+  --blockquote-border-color: var(--aged-bronze);
+  --hr-color: var(--color-base-25);
+  --collapse-icon-color-collapsed: var(--mystic-purple);
+  --checkbox-color: var(--mystic-purple);
+  --checkbox-color-hover: #7d6ec4;
+  --checkbox-border-color: var(--color-base-40);
+  --checkbox-marker-color: var(--color-base-00);
+  --checklist-done-color: var(--sage);
+  --list-marker-color: var(--aged-bronze);
+
+  /* ─── Properties ─── */
+  --metadata-label-text-color: var(--aged-bronze);
+  --metadata-input-text-color: var(--warm-paper);
+
+  /* ─── Graph ─── */
+  --graph-line: color-mix(in srgb, var(--mystic-purple) 30%, transparent);
+  --graph-node: var(--mystic-purple);
+  --graph-node-focused: var(--aged-gold);
+  --graph-node-tag: var(--sage);
+  --graph-node-attachment: var(--aged-bronze);
+
+  /* ─── Sidebar / Nav ─── */
+  --nav-item-color-hover: var(--warm-paper);
+  --nav-item-background-hover: color-mix(in srgb, var(--dusk-blue) 20%, transparent);
+  --nav-item-background-active: color-mix(in srgb, var(--mystic-purple) 15%, transparent);
+  --nav-indentation-guide-color: var(--color-base-30);
+
+  /* ─── Indentation ─── */
+  --indentation-guide-color: var(--color-base-30);
+  --indentation-guide-color-active: var(--color-base-40);
+
+  /* ─── Pill / Toggle ─── */
+  --pill-cover-hover: color-mix(in srgb, var(--mystic-purple) 30%, transparent);
+
+  /* ─── Icons ─── */
+  --icon-color: var(--color-base-60);
+  --icon-color-hover: var(--warm-paper);
+  --icon-color-focused: var(--aged-gold);
+
+  /* ─── Inline Title ─── */
+  --inline-title-color: var(--aged-gold);
+  --inline-title-weight: 700;
+  --bold-color: var(--warm-paper);
+  --italic-color: #b8a8d8;
+}
+
+/* ─── Daily Hue Variations ───────────────────────────────────────────────────
+   These subtly shift the note background when applied via cssclasses on daily
+   notes. They target the view content container directly since cssclasses are
+   applied to the note view, not the workspace root.
+─────────────────────────────────────────────────────────────────────────────── */
+
+.sunday, .Sunday {
+  background-color: hsl(350, 30%, 14%) !important;
+  --hr-color: hsl(350, 25%, 25%);
+  --background-modifier-border: hsl(350, 25%, 22%);
+}
+
+.monday, .Monday {
+  background-color: hsl(290, 25%, 14%) !important;
+  --hr-color: hsl(290, 20%, 25%);
+  --background-modifier-border: hsl(290, 20%, 22%);
+}
+
+.tuesday, .Tuesday {
+  background-color: hsl(240, 35%, 16%) !important;
+  --hr-color: hsl(240, 30%, 26%);
+  --background-modifier-border: hsl(240, 28%, 23%);
+}
+
+.wednesday, .Wednesday {
+  background-color: hsl(200, 30%, 14%) !important;
+  --hr-color: hsl(200, 25%, 24%);
+  --background-modifier-border: hsl(200, 22%, 22%);
+}
+
+.thursday, .Thursday {
+  background-color: hsl(150, 22%, 13%) !important;
+  --hr-color: hsl(150, 18%, 23%);
+  --background-modifier-border: hsl(150, 16%, 20%);
+}
+
+.friday, .Friday {
+  background-color: hsl(100, 18%, 13%) !important;
+  --hr-color: hsl(100, 14%, 23%);
+  --background-modifier-border: hsl(100, 12%, 20%);
+}
+
+.saturday, .Saturday {
+  background-color: hsl(35, 28%, 13%) !important;
+  --hr-color: hsl(35, 22%, 23%);
+  --background-modifier-border: hsl(35, 20%, 20%);
+}
+
+/* ─── General Styling (from Vauxhall) ─── */
+
+h1 {
+  margin-top: 20px !important;
+  margin-bottom: 10px;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+.callout {
+  border-radius: 12px;
+  border-width: 2px;
+}
+
+.task-list-item-checkbox {
+  border-width: 2px;
+}
+
+.document-search-container {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-color: var(--color-base-30);
+  border-width: 1px;
+  border-top-width: 0px;
+  border-style: solid;
+}
+
+.document-search-button {
+  color: var(--color-base-100);
+}
+
+/* ─── Embedded Notes ─── */
+.markdown-embed {
+  border-left: 2px solid var(--aged-bronze);
+  background: var(--color-base-05);
+}
+
+/* ─── Tables ─── */
+table {
+  border-color: var(--color-base-25);
+}
+
+th {
+  background: var(--color-base-10);
+  color: var(--aged-gold);
+  font-weight: 600;
+}
+
+td {
+  border-color: var(--color-base-25);
+}
+
+/* ─── Suggestion Items ─── */
+.suggestion-item.is-selected {
+  background: color-mix(in srgb, var(--mystic-purple) 20%, transparent);
+}
+
+/* ─── Dataview ─── */
+.dataview table thead {
+  border-bottom: 2px solid var(--color-base-25);
+}
+
+.dataview table tr:nth-child(even) {
+  background: var(--color-base-05);
+}
